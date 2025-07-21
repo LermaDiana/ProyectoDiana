@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Suma de edades</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <input id='edad1' type="text" value="" required placeholder="ingresa tu edad 1"></input>
+    <input id='edad2' type="text" value="" required placeholder="ingresa tu edad 2"></input>
+    <button onclick="sumarEdades()">Enviar</button> 
+    <h2 id="resultado"></h2>         
+</body>
+    <script>
+        function sumarEdades() {
+        const edad1 = parseInt(document.getElementById('edad1').value) || 0;
+        const edad2 = parseInt(document.getElementById('edad2').value) || 0;
+        const EdadTotal = edad1 + edad2;
+        document.getElementById('resultado').textContent = "Edad Total: " + EdadTotal;
+    }
+</script>
+</html>
+ 
+ 
