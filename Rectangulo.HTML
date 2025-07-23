@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <title>Cuadrado</title>
+    <title>Rectangulo</title>
 </head>
 <body>
-    
-    <h1 id="title">Cuadrado</h1>
-    <h2>Área</h2>
-    <input id="Base" type="text" value="" required placeholder="Ingrese la base"></input>
-    <input id="altura" type="text" value="" required placeholder="Ingrese la altura"></input>
-    <button onclick="calcularArea()">Enviar</button>
-    <h3 id="Área"></h3>
-    <h2>Perimetro</h2>
-    <input id="base1" type="text" value="" required placeholder="Ingrese la base1"></input>
-    <input id="base2" type="text" value="" required placeholder="Ingrese la base2"></input>
-    <input id="altura1" type="text" value="" required placeholder="Ingrese la altura1"></input>
-    <input id="altura2" type="text" value="" required placeholder="Ingrese la altura2"></input>
-    <button onclick="calcularPerimetro()">Enviar</button>
-    <h3 id="Perimetro"></h3>
+    <h1 id="title">Rectangulo</h1>
+    <input id="Base" type="text" required placeholder="Ingresa la base">
+    <input id="Altura" type="text" required placeholder="Ingresa la altura">
+    <select id="operacion">
+        <option value="area">Área</option>
+        <option value="perimetro">Perímetro</option>
+    </select>
+    <button onclick="calcular()">Calcular</button>
+    <h3 id="Resultado"></h3>
+    <script>
+        function calcular() {
+            const base = parseFloat(document.getElementById('Base').value);
+            const altura = parseFloat(document.getElementById('Altura').value);
+            const operacion = document.getElementById('operacion').value;
 
+            if (base > 0 && altura > 0) {
+                if (operacion === "area") {
+                    const area = base * altura;
+                    document.getElementById('Resultado').textContent = "Área: " + area.toFixed(2);
+                } else if (operacion === "perimetro") {
+                    const perimetro = 2 * (base + altura);
+                    document.getElementById('Resultado').textContent = "Perímetro: " + perimetro.toFixed(2);
+                }
+            } 
+        }
+    </script>
 </body>
-<script>
-    function calcularPerimetro() {
-        const base1 = parseFloat(document.getElementById('base1').value) || 0; 
-        const base2 = parseFloat(document.getElementById('base2').value) || 0; 
-        const altura1 = parseFloat(document.getElementById('altura1').value) || 0; 
-        const altura2 = parseFloat(document.getElementById('altura2').value) || 0; 
-        const perimetro = (base1 + base2 + altura1 + altura2);
-        document.getElementById('Perimetro').textContent = "Perimetro: " + perimetro;
-    }
-    function calcularArea() {
-        const base = parseFloat(document.getElementById('Base').value) || 0;
-        const altura = parseFloat(document.getElementById('altura').value) || 0;
-        const area = base * altura;
-        document.getElementById('Área').textContent = "Área: " + area;
-    }
-</script>
 </html>
+    
+            
