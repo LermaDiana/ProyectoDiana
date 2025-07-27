@@ -4,28 +4,28 @@
     <title>Círculo</title>
 </head>
 <body>
-    <h1 id="title">Círculo</h1>
-    <input id="radio" type="text" required placeholder="Ingresa el radio">
-    <select id="operacion">
-        <option value="area">Área</option>
-        <option value="perimetro">Perímetro</option>
-    </select>
-    <button onclick="calcular()">Calcular</button>
-    <h3 id="Resultado"></h3>
-    <script>
-        function calcular() {
-            const radio = parseFloat(document.getElementById('radio').value);
-            const operacion = document.getElementById('operacion').value;
-            if (radio > 0) {
-                if (operacion === "area") {
-                    const area = Math.PI * Math.pow(radio, 2);
-                    document.getElementById('Resultado').textContent = "Área: " + area.toFixed(2);
-                } else if (operacion === "perimetro") {
-                    const perimetro = 2 * Math.PI * radio;
-                    document.getElementById('Resultado').textContent = "Perímetro: " + perimetro.toFixed(2);
-                }
-            } 
-        }
-    </script>
 </body>
+<script>
+function calcularArea(radio) {
+        return Math.PI * radio * radio;
+    }
+    function calcularPerimetro(radio) {
+        return 2 * Math.PI * radio;
+    }
+    let results = [];
+    for (let i = 1; i <= 10; i++) {
+        results[i] = `area del circulo radio=${i} area=${calcularArea(i).toFixed(2)} m2`;
+        document.querySelector("body").innerHTML += results[i];
+        document.querySelector("body").innerHTML += "<br/>";
+    }
+    document.querySelector("body").innerHTML += "<br/>";
+    
+    let k = 1;
+    while (k <= 10) {
+        results[k] = `perimetro del circulo radio=${k} perimetro=${calcularPerimetro(k).toFixed(2)} m`;
+        document.querySelector("body").innerHTML += results[k];
+        document.querySelector("body").innerHTML += "<br/>";
+        k += 1;
+    }
+</script>
 </html>

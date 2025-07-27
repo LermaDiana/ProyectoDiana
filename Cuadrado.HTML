@@ -4,38 +4,29 @@
     <title>Cuadrado</title>
 </head>
 <body>
-    <h1 id="title">Cuadrado</h1>
-    <input id="Lado1" type="text" required placeholder="Ingresa el Lado1">
-    <input id="Lado2" type="text" required placeholder="Ingresa la Lado2">
-    <input id="Lado3" type="text" required placeholder="Ingresa el Lado3">
-    <input id="Lado4" type="text" required placeholder="Ingresa el Lado4">
-    <select id="operacion">
-        <option value="area">Área</option>
-        <option value="perimetro">Perímetro</option>
-    </select>
-    <button onclick="calcular()">Calcular</button>
-    <h3 id="Resultado"></h3>
-    <script>
-        function calcular() {
-            const Lado1 = parseFloat(document.getElementById('Lado1').value);
-            const Lado2 = parseFloat(document.getElementById('Lado2').value);
-            const Lado3 = parseFloat(document.getElementById('Lado3').value);
-            const Lado4 = parseFloat(document.getElementById('Lado4').value);
-            const operacion = document.getElementById('operacion').value;
-
-            if (operacion === "area") {
-                if (Lado1 > 0 && Lado2 > 0) {
-                    const area = Lado1 * Lado2;
-                    document.getElementById('Resultado').textContent = "Área: " + area.toFixed(2);
-                } 
-            } else if (operacion === "perimetro") {
-                if (Lado1 > 0 && Lado2 > 0 && Lado3 > 0 && Lado4 > 0) {
-                    const perimetro = Lado1 + Lado2 + Lado3 + Lado4;
-                    document.getElementById('Resultado').textContent = "Perímetro: " + perimetro.toFixed(2);
-                }
-            }
-        }
-    </script>
 </body>
+<script>
+    function calcularArea(lado) {
+        return lado * lado;
+    }
+    function calcularPerimetro(lado) {
+        return 4 * lado;
+    }
+    let results = [];
+    for (let i = 1; i <= 10; i++) {
+        results[i] = `area del cuadrado lado=${i} area=${calcularArea(i)} m2`;
+        document.querySelector("body").innerHTML += results[i];
+        document.querySelector("body").innerHTML += "<br/>";
+    }
+    document.querySelector("body").innerHTML += "<br/>";
+    let k = 1;
+    while (k <= 10) {
+        results[k] = `perimetro del cuadrado lado=${k} perimetro=${calcularPerimetro(k)} m`;
+        document.querySelector("body").innerHTML += results[k];
+        document.querySelector("body").innerHTML += "<br/>";
+        k += 1;
+    }
+    
+    </script>
 </html>
             

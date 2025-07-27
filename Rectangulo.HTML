@@ -4,33 +4,30 @@
     <title>Rectangulo</title>
 </head>
 <body>
-    <h1 id="title">Rectangulo</h1>
-    <input id="Base" type="text" required placeholder="Ingresa la base">
-    <input id="Altura" type="text" required placeholder="Ingresa la altura">
-    <select id="operacion">
-        <option value="area">Área</option>
-        <option value="perimetro">Perímetro</option>
-    </select>
-    <button onclick="calcular()">Calcular</button>
-    <h3 id="Resultado"></h3>
-    <script>
-        function calcular() {
-            const base = parseFloat(document.getElementById('Base').value);
-            const altura = parseFloat(document.getElementById('Altura').value);
-            const operacion = document.getElementById('operacion').value;
-
-            if (base > 0 && altura > 0) {
-                if (operacion === "area") {
-                    const area = base * altura;
-                    document.getElementById('Resultado').textContent = "Área: " + area.toFixed(2);
-                } else if (operacion === "perimetro") {
-                    const perimetro = 2 * (base + altura);
-                    document.getElementById('Resultado').textContent = "Perímetro: " + perimetro.toFixed(2);
-                }
-            } 
-        }
-    </script>
 </body>
-</html>
+<script>
+function calcularArea(base, altura) {
+        return base * altura;
+    }
+    function calculaPerimetro(base, altura) {
+        return 2 * base + 2 * altura;
+    }
+    // guardar el cuadrado de n**2  donde n = 0-100;
+    let results = [];
+    for (let i = 1; i <= 10; i++) {
+        results[i] = `area del rectangulo base=${3} altura=${i} area=${calcularArea(3, i)} m2`;
+        document.querySelector("body").innerHTML += results[i];
+        document.querySelector("body").innerHTML += "<br/>";
+    }
+    document.querySelector("body").innerHTML += "<br/>";
+
+    let k = 0;
+    while (k <= 10) {
+        results[k] = `perimetro del rectangulo base=${3} altura=${k} perimetro=${calculaPerimetro(3, k)} m`;
+        document.querySelector("body").innerHTML += results[k];
+        document.querySelector("body").innerHTML += "<br/>";
+        k += 1;
+    }
     
-            
+</script>
+</html>

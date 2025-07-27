@@ -4,37 +4,34 @@
     <title>Triangulo</title>
 </head>
 <body>
-    <h1 id="title">Triangulo</h1>
-    <input id="lado1" type="text" required placeholder="Ingresa el lado1">
-    <input id="lado2" type="text" required placeholder="Ingresa el lado2">
-    <input id="Base" type="text" required placeholder="Ingresa la base">
-    <input id="Altura" type="text" required placeholder="Ingresa la altura">
-    <select id="operacion">
-        <option value="area">Área</option>
-        <option value="perimetro">Perímetro</option>
-    </select>
-    <button onclick="calcular()">Calcular</button>
-    <h3 id="Resultado"></h3>
-    <script>
-        function calcular() {
-            const lado1 = parseFloat(document.getElementById('lado1').value);
-            const lado2 = parseFloat(document.getElementById('lado2').value);
-            const base = parseFloat(document.getElementById('Base').value);
-            const altura = parseFloat(document.getElementById('Altura').value);
-            const operacion = document.getElementById('operacion').value;
-
-            if (base > 0 && altura > 0) {
-                if (operacion === "area") {
-                    const area = (base * altura) / 2;
-                    document.getElementById('Resultado').textContent = "Área: " + area.toFixed(2);
-                } else if (operacion === "perimetro") {
-                    const perimetro = lado1 + lado2 + base;
-                    document.getElementById('Resultado').textContent = "Perímetro: " + perimetro.toFixed(2);
-                }
-            } 
-        }
-    </script>
 </body>
+    
+<script>
+function calcularArea(base, altura) {
+        return (base * altura) / 2;
+    }
+    function calculaPerimetro(base, altura) {
+        return base + altura + Math.sqrt(base * base + altura * altura);
+    }
+    let results = [];
+    for (let i = 1; i <= 10; i++) {
+        results[i] = `area del triangulo base=${3} altura=${i} area=${calcularArea(3, i)} m2`;
+        document.querySelector("body").innerHTML += results[i];
+        document.querySelector("body").innerHTML += "<br/>";
+    }
+    document.querySelector("body").innerHTML += "<br/>";
+
+    let k = 1;
+    while (k <= 10) {
+        results[k] = `perimetro del triangulo base=${3} altura=${k} perimetro=${calculaPerimetro(3, k)} m`;
+        document.querySelector("body").innerHTML += results[k];
+        document.querySelector("body").innerHTML += "<br/>";
+        k += 1;
+    }
+</script>
+
+</script>
+
 </html>
     
             
