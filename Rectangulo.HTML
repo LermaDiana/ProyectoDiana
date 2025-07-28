@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <title>Rectangulo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
+    
 </body>
 <script>
-function calcularArea(base, altura) {
-        return base * altura;
-    }
-    function calculaPerimetro(base, altura) {
-        return 2 * base + 2 * altura;
-    }
-    // guardar el cuadrado de n**2  donde n = 0-100;
-    let results = [];
-    for (let i = 1; i <= 10; i++) {
-        results[i] = `area del rectangulo base=${3} altura=${i} area=${calcularArea(3, i)} m2`;
-        document.querySelector("body").innerHTML += results[i];
-        document.querySelector("body").innerHTML += "<br/>";
-    }
-    document.querySelector("body").innerHTML += "<br/>";
+    console.log("hola")
+		// new structure ES2022
+		class Rectangulo {
+			#perimetro = 0;
+			#area = 0;
+			#base = 0;
+			#altura = 0;
+			constructor(base, altura) {
+				this.#base = base;
+				this.#altura = altura;
+			}
+			calculaArea() {
+				this.#area = this.#base * this.#altura;
+				return this.#area;
+			}
+            calculaPerimetro() {
+                this.#perimetro = 2 * (this.#base + this.#altura);
+                return this.#perimetro;
+            }
+		}
 
-    let k = 0;
-    while (k <= 10) {
-        results[k] = `perimetro del rectangulo base=${3} altura=${k} perimetro=${calculaPerimetro(3, k)} m`;
-        document.querySelector("body").innerHTML += results[k];
-        document.querySelector("body").innerHTML += "<br/>";
-        k += 1;
-    }
-    
+		const rectangulo = new Rectangulo(3, 4);
+		const area = rectangulo.calculaArea();
+        const perimetro = rectangulo.calculaPerimetro();
 </script>
 </html>

@@ -7,31 +7,30 @@
 </body>
     
 <script>
-function calcularArea(base, altura) {
-        return (base * altura) / 2;
-    }
-    function calculaPerimetro(base, altura) {
-        return base + altura + Math.sqrt(base * base + altura * altura);
-    }
-    let results = [];
-    for (let i = 1; i <= 10; i++) {
-        results[i] = `area del triangulo base=${3} altura=${i} area=${calcularArea(3, i)} m2`;
-        document.querySelector("body").innerHTML += results[i];
-        document.querySelector("body").innerHTML += "<br/>";
-    }
-    document.querySelector("body").innerHTML += "<br/>";
+    console.log("hola");
+    // new structure ES2022
+    class Triangulo {
+        #perimetro = 0;
+        #area = 0;
+        #base = 0;
+        #altura = 0;
 
-    let k = 1;
-    while (k <= 10) {
-        results[k] = `perimetro del triangulo base=${3} altura=${k} perimetro=${calculaPerimetro(3, k)} m`;
-        document.querySelector("body").innerHTML += results[k];
-        document.querySelector("body").innerHTML += "<br/>";
-        k += 1;
+        constructor(base, altura) {
+            this.#base = base;
+            this.#altura = altura;
+        }
+        calcularArea() {
+            this.#area = (this.#base * this.#altura) / 2;
+            return this.#area;
+        }
+
+        calculaPerimetro() {
+            this.#perimetro = this.#base + this.#altura + Math.sqrt(this.#base ** 2 + this.#altura ** 2);
+            return this.#perimetro;
+        }
     }
+    const triangulo = new Triangulo(3, 4);
+    const area = triangulo.calcularArea();
+    const perimetro = triangulo.calculaPerimetro();
 </script>
-
-</script>
-
 </html>
-    
-            

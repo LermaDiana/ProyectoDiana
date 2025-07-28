@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuadrado</title>
 </head>
 <body>
+    
 </body>
 <script>
-    function calcularArea(lado) {
-        return lado * lado;
+    console.log("hola");
+    // new structure ES2022
+    class Cuadrado {
+        #lado = 0;
+        #area = 0;
+        #perimetro = 0;
+
+        constructor(lado) {
+            this.#lado = lado;
+        }
+
+        calcularArea() {
+            this.#area = this.#lado ** 2;
+            return this.#area;
+        }
+
+        calcularPerimetro() {
+            this.#perimetro = 4 * this.#lado;
+            return this.#perimetro;
+        }
     }
-    function calcularPerimetro(lado) {
-        return 4 * lado;
-    }
-    let results = [];
-    for (let i = 1; i <= 10; i++) {
-        results[i] = `area del cuadrado lado=${i} area=${calcularArea(i)} m2`;
-        document.querySelector("body").innerHTML += results[i];
-        document.querySelector("body").innerHTML += "<br/>";
-    }
-    document.querySelector("body").innerHTML += "<br/>";
-    let k = 1;
-    while (k <= 10) {
-        results[k] = `perimetro del cuadrado lado=${k} perimetro=${calcularPerimetro(k)} m`;
-        document.querySelector("body").innerHTML += results[k];
-        document.querySelector("body").innerHTML += "<br/>";
-        k += 1;
-    }
-    
-    </script>
+
+    const cuadrado = new Cuadrado(5);
+    const area = cuadrado.calcularArea();
+    const perimetro = cuadrado.calcularPerimetro();
+
+    console.log("Área:", area);
+    console.log("Perímetro:", perimetro);
+</script>
 </html>
-            
